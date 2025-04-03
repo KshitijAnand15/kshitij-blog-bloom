@@ -14,49 +14,43 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="py-8 border-b border-muted">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="mb-4 md:mb-0">
-              <Link to="/" className="text-xl font-medium">Kshitij Anand</Link>
-            </div>
+    <div className="min-h-screen">
+      <header className="py-8 border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="text-2xl font-medium text-gray-800">Your Name</Link>
             <nav>
-              <ul className="flex space-x-6">
+              <ul className="flex space-x-8">
                 <li>
                   <Link 
                     to="/blog" 
-                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/blog') ? 'text-accent after:w-full' : ''}`}
+                    className={`text-gray-800 hover:text-gray-600 ${isActive('/blog') ? 'bg-white shadow-sm rounded-md px-3 py-2' : ''}`}
                   >
-                    <span>Blog</span>
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/blog') ? 'w-full' : ''}`}></span>
+                    Blog
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/pow" 
-                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/pow') ? 'text-accent after:w-full' : ''}`}
+                    className={`text-gray-800 hover:text-gray-600 ${isActive('/pow') ? 'bg-white shadow-sm rounded-md px-3 py-2' : ''}`}
                   >
-                    <span>POW</span>
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/pow') ? 'w-full' : ''}`}></span>
+                    POW
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/projects" 
-                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/projects') ? 'text-accent after:w-full' : ''}`}
+                    className={`text-gray-800 hover:text-gray-600 ${isActive('/projects') ? 'bg-white shadow-sm rounded-md px-3 py-2' : ''}`}
                   >
-                    <span>Projects</span>
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/projects') ? 'w-full' : ''}`}></span>
+                    Projects
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/bookmarks" 
-                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/bookmarks') ? 'text-accent after:w-full' : ''}`}
+                    className={`text-gray-800 hover:text-gray-600 ${isActive('/bookmarks') ? 'bg-white shadow-sm rounded-md px-3 py-2' : ''}`}
                   >
-                    <span>Bookmarks</span>
-                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/bookmarks') ? 'w-full' : ''}`}></span>
+                    Bookmarks
                   </Link>
                 </li>
                 <li>
@@ -64,10 +58,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     href="https://kshitijanand.substack.com/" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="relative text-foreground hover:text-accent transition-colors duration-200"
+                    className="text-gray-800 hover:text-gray-600"
                   >
-                    <span>Newsletter</span>
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200"></span>
+                    Newsletter
                   </a>
                 </li>
               </ul>
@@ -76,17 +69,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </header>
       
-      <main className="flex-1">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-12">
+      <main>
+        <div className="max-w-5xl mx-auto px-4 py-8">
           {children}
         </div>
       </main>
-      
-      <footer className="py-8 border-t border-muted">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Kshitij Anand. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -10,31 +10,27 @@ export interface BlogPostProps {
   slug: string;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ id, title, excerpt, date, slug }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ title, date, slug }) => {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  });
+
   return (
-    <article className="mb-8 pb-8 border-b border-muted last:border-0">
-      <h2>
-        <Link to={`/blog/${slug}`} className="text-xl md:text-2xl font-medium mb-2 hover:text-accent transition-colors">
-          {title}
-        </Link>
-      </h2>
-      <div className="text-sm text-muted-foreground mb-3">
-        {new Date(date).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
+    <div className="py-3">
+      <div className="flex">
+        <div className="w-36 text-gray-600">{formattedDate}</div>
+        <div>
+          <Link 
+            to={`/blog/${slug}`}
+            className="text-blue-600 hover:underline"
+          >
+            {title}
+          </Link>
+        </div>
       </div>
-      <p className="text-foreground/80 mb-4">{excerpt}</p>
-      <div className="mt-2">
-        <Link 
-          to={`/blog/${slug}`} 
-          className="text-accent hover:underline font-medium"
-        >
-          Read more
-        </Link>
-      </div>
-    </article>
+    </div>
   );
 };
 

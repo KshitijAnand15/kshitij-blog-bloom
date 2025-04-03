@@ -25,24 +25,19 @@ const Bookmarks = () => {
 
   return (
     <Layout>
-      <div className="py-8">
-        <h1 className="text-3xl md:text-4xl font-medium mb-6">Bookmarks</h1>
-        <p className="text-lg text-foreground/80 mb-8">
-          Interesting articles, resources, and tools I've found around the web.
-        </p>
-
+      <div className="py-4">
+        <h1 className="font-medium text-2xl mb-1">Favorite Article:</h1>
+        
         {loading ? (
           <div className="text-center py-10">
             <p>Loading bookmarks...</p>
           </div>
         ) : bookmarks.length > 0 ? (
           <div>
-            {bookmarks.map((bookmark) => (
-              <Bookmark key={bookmark.id} {...bookmark} />
-            ))}
+            <p className="text-gray-700">Description here...</p>
           </div>
         ) : (
-          <div className="text-center py-10">
+          <div className="py-4">
             <p>No bookmarks found.</p>
           </div>
         )}

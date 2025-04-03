@@ -9,28 +9,20 @@ export interface POWItemProps {
   imageUrl?: string;
 }
 
-const POWItem: React.FC<POWItemProps> = ({ title, content, date, imageUrl }) => {
+const POWItem: React.FC<POWItemProps> = ({ title, date }) => {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  });
+  
   return (
-    <div className="mb-8 pb-8 border-b border-muted last:border-0">
-      {imageUrl && (
-        <div className="mb-4">
-          <img 
-            src={imageUrl} 
-            alt={title} 
-            className="w-full h-64 object-cover rounded-md"
-          />
+    <div className="py-3">
+      <div className="flex">
+        <div className="w-36 text-gray-600">{formattedDate}</div>
+        <div>
+          <span className="text-gray-800">{title}</span>
         </div>
-      )}
-      <div className="text-sm text-muted-foreground mb-2">
-        {new Date(date).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
-      </div>
-      <h2 className="text-xl md:text-2xl font-medium mb-3">{title}</h2>
-      <div className="prose prose-sm max-w-none">
-        <p className="text-foreground/80">{content}</p>
       </div>
     </div>
   );

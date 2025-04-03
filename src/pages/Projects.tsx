@@ -25,24 +25,19 @@ const Projects = () => {
 
   return (
     <Layout>
-      <div className="py-8">
-        <h1 className="text-3xl md:text-4xl font-medium mb-6">Projects</h1>
-        <p className="text-lg text-foreground/80 mb-8">
-          A collection of my work, side projects, and experiments.
-        </p>
-
+      <div className="py-4">
+        <h1 className="font-medium text-2xl mb-1">Website Project:</h1>
+        
         {loading ? (
           <div className="text-center py-10">
             <p>Loading projects...</p>
           </div>
         ) : projects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <Project key={project.id} {...project} />
-            ))}
+          <div>
+            <p className="text-gray-700">Description here...</p>
           </div>
         ) : (
-          <div className="text-center py-10">
+          <div className="py-4">
             <p>No projects found.</p>
           </div>
         )}
