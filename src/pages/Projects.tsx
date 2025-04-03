@@ -26,7 +26,7 @@ const Projects = () => {
   return (
     <Layout>
       <div className="py-4">
-        <h1 className="font-medium text-2xl mb-1">Website Project:</h1>
+        <h1 className="font-medium text-2xl mb-4">Projects</h1>
         
         {loading ? (
           <div className="text-center py-10">
@@ -34,7 +34,9 @@ const Projects = () => {
           </div>
         ) : projects.length > 0 ? (
           <div>
-            <p className="text-gray-700">Description here...</p>
+            {projects.map((project) => (
+              <Project key={project.id} {...project} />
+            ))}
           </div>
         ) : (
           <div className="py-4">

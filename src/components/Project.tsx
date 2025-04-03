@@ -9,11 +9,17 @@ export interface ProjectProps {
   imageUrl?: string;
 }
 
-const Project: React.FC<ProjectProps> = ({ title, description }) => {
+const Project: React.FC<ProjectProps> = ({ title, description, link }) => {
   return (
-    <div className="mb-8">
+    <div className="py-3 border-b border-gray-200 last:border-0">
       <h3 className="font-medium text-lg mb-1">
-        {title}:
+        {link ? (
+          <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+            {title}
+          </a>
+        ) : (
+          title
+        )}
       </h3>
       <p className="text-gray-700">
         {description}

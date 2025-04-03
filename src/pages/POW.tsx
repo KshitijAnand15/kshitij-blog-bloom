@@ -25,21 +25,25 @@ const POW = () => {
 
   return (
     <Layout>
-      {loading ? (
-        <div className="text-center py-10">
-          <p>Loading content...</p>
-        </div>
-      ) : items.length > 0 ? (
-        <div>
-          {items.map((item) => (
-            <POWItem key={item.id} {...item} />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-10">
-          <p>No POW items found.</p>
-        </div>
-      )}
+      <div className="py-4">
+        <h1 className="font-medium text-2xl mb-4">Posts of the Week</h1>
+        
+        {loading ? (
+          <div className="text-center py-10">
+            <p>Loading content...</p>
+          </div>
+        ) : items.length > 0 ? (
+          <div>
+            {items.map((item) => (
+              <POWItem key={item.id} {...item} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-10">
+            <p>No POW items found.</p>
+          </div>
+        )}
+      </div>
     </Layout>
   );
 };
