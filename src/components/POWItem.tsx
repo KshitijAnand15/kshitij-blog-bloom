@@ -30,7 +30,7 @@ const POWItem: React.FC<POWItemProps> = ({ title, content, date, imageUrl }) => 
       </div>
       <h2 className="text-xl md:text-2xl font-medium mb-3">{title}</h2>
       <div className="prose prose-sm max-w-none">
-        <p>{content}</p>
+        <p className="text-foreground/80">{content}</p>
       </div>
     </div>
   );

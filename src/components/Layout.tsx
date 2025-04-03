@@ -26,33 +26,37 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <li>
                   <Link 
                     to="/blog" 
-                    className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
+                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/blog') ? 'text-accent after:w-full' : ''}`}
                   >
-                    Blog
+                    <span>Blog</span>
+                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/blog') ? 'w-full' : ''}`}></span>
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/pow" 
-                    className={`nav-link ${isActive('/pow') ? 'active' : ''}`}
+                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/pow') ? 'text-accent after:w-full' : ''}`}
                   >
-                    POW
+                    <span>POW</span>
+                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/pow') ? 'w-full' : ''}`}></span>
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/projects" 
-                    className={`nav-link ${isActive('/projects') ? 'active' : ''}`}
+                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/projects') ? 'text-accent after:w-full' : ''}`}
                   >
-                    Projects
+                    <span>Projects</span>
+                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/projects') ? 'w-full' : ''}`}></span>
                   </Link>
                 </li>
                 <li>
                   <Link 
                     to="/bookmarks" 
-                    className={`nav-link ${isActive('/bookmarks') ? 'active' : ''}`}
+                    className={`relative text-foreground hover:text-accent transition-colors duration-200 ${isActive('/bookmarks') ? 'text-accent after:w-full' : ''}`}
                   >
-                    Bookmarks
+                    <span>Bookmarks</span>
+                    <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200 ${isActive('/bookmarks') ? 'w-full' : ''}`}></span>
                   </Link>
                 </li>
                 <li>
@@ -60,9 +64,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     href="https://kshitijanand.substack.com/" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="nav-link"
+                    className="relative text-foreground hover:text-accent transition-colors duration-200"
                   >
-                    Newsletter
+                    <span>Newsletter</span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200"></span>
                   </a>
                 </li>
               </ul>
@@ -72,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
       
       <main className="flex-1">
-        <div className="content-container">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-12">
           {children}
         </div>
       </main>

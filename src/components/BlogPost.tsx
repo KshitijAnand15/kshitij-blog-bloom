@@ -12,21 +12,21 @@ export interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ id, title, excerpt, date, slug }) => {
   return (
-    <article className="blog-post">
+    <article className="mb-8 pb-8 border-b border-muted last:border-0">
       <h2>
-        <Link to={`/blog/${slug}`} className="blog-post-title">
+        <Link to={`/blog/${slug}`} className="text-xl md:text-2xl font-medium mb-2 hover:text-accent transition-colors">
           {title}
         </Link>
       </h2>
-      <div className="blog-post-meta">
+      <div className="text-sm text-muted-foreground mb-3">
         {new Date(date).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         })}
       </div>
-      <p className="text-foreground/80">{excerpt}</p>
-      <div className="mt-4">
+      <p className="text-foreground/80 mb-4">{excerpt}</p>
+      <div className="mt-2">
         <Link 
           to={`/blog/${slug}`} 
           className="text-accent hover:underline font-medium"
