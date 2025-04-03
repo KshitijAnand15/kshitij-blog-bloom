@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className="py-8 border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-2xl font-medium text-gray-800">Your Name</Link>
+            <Link to="/" className="text-2xl font-medium text-gray-800">Kshitij Anand</Link>
             <nav>
               <ul className="flex space-x-8">
                 <li>
