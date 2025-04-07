@@ -37,7 +37,7 @@ const POW = () => {
   return (
     <Layout>
       <div className="py-4">
-        <h1 className="font-medium text-2xl mb-4">Posts of the Week</h1>
+        <h1 className="font-medium text-2xl mb-4">Proof of Work</h1>
         
         {loading ? (
           <div className="text-center py-10">
@@ -98,7 +98,7 @@ const POW = () => {
           </>
         ) : (
           <div className="text-center py-10">
-            <p>No POW items found.</p>
+            <p>No Proof of Work items found.</p>
           </div>
         )}
       </div>

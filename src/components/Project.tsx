@@ -24,13 +24,6 @@ const Project: React.FC<ProjectProps> = ({ id, title, description, link }) => {
       <p className="text-gray-700">
         {description}
       </p>
-      {link && (
-        <div className="mt-2">
-          <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline text-sm">
-            External Link →
-          </a>
-        </div>
-      )}
     </div>
   );
 };

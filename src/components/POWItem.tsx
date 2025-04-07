@@ -20,25 +20,25 @@ const POWItem: React.FC<POWItemProps> = ({ id, title, date, content, link }) => 
   
   return (
     <div className="py-3 border-b border-gray-200 last:border-0">
-      <div className="flex flex-col md:flex-row md:items-start">
-        <div className="md:w-36 text-gray-600 mb-1 md:mb-0">{formattedDate}</div>
-        <div>
-          <Link 
-            to={`/pow/${id}`}
-            className="text-gray-800 font-medium hover:text-blue-600"
-          >
-            {title}
-          </Link>
-          <div className="text-gray-700 mt-1">{content}</div>
-          {link && (
-            <div className="mt-2">
-              <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline text-sm">
-                External Link →
-              </a>
-            </div>
-          )}
+      <h3 className="font-medium text-lg mb-1">
+        <Link 
+          to={`/pow/${id}`}
+          className="text-gray-800 hover:text-blue-600"
+        >
+          {title}
+        </Link>
+      </h3>
+      <div className="text-gray-600 text-sm mb-1">{formattedDate}</div>
+      <p className="text-gray-700">
+        {content}
+      </p>
+      {link && (
+        <div className="mt-2">
+          <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline text-sm">
+            External Link →
+          </a>
         </div>
-      </div>
+      )}
     </div>
   );
 };
