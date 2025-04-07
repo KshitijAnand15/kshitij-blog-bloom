@@ -11,14 +11,15 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Updated with your actual repository name from the GitHub URL
-  base: mode === 'production' ? '/kshitij-blog-bloom/' : '/', // This ensures GitHub Pages can find assets correctly
+  base: mode === "production" ? "/kshitij-blog-bloom/" : "/", // ✅ Ensures correct paths for GitHub Pages
+  build: {
+    outDir: "dist", // ✅ Ensure build outputs to `dist`
+  },
 }));
