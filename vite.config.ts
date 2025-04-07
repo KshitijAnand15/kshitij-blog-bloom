@@ -21,5 +21,12 @@ export default defineConfig(({ mode }) => ({
   base: mode === "production" ? "/kshitij-blog-bloom/" : "/", // ✅ Ensures correct paths for GitHub Pages
   build: {
     outDir: "dist", // ✅ Ensure build outputs to `dist`
+    rollupOptions: {
+      output: {
+        assetFileNames: "[name]-[hash][extname]", // ✅ Prevents 404 errors for assets
+        chunkFileNames: "[name]-[hash].js",
+        entryFileNames: "[name]-[hash].js",
+      },
+    },
   },
 }));
