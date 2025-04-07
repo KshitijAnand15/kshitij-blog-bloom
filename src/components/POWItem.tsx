@@ -11,13 +11,7 @@ export interface POWItemProps {
   link?: string;
 }
 
-const POWItem: React.FC<POWItemProps> = ({ id, title, date, content, link }) => {
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric'
-  });
-  
+const POWItem: React.FC<POWItemProps> = ({ id, title, content, link }) => {
   return (
     <div className="py-3 border-b border-gray-200 last:border-0">
       <h3 className="font-medium text-lg mb-1">
@@ -28,7 +22,6 @@ const POWItem: React.FC<POWItemProps> = ({ id, title, date, content, link }) => 
           {title}
         </Link>
       </h3>
-      <div className="text-gray-600 text-sm mb-1">{formattedDate}</div>
       <p className="text-gray-700">
         {content}
       </p>
