@@ -9,10 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-    mode === "development" && componentTagger(),
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -20,12 +17,14 @@ export default defineConfig(({ mode }) => ({
   },
   base: mode === "production" ? "/kshitij-blog-bloom/" : "/", // ✅ Ensures correct paths for GitHub Pages
   build: {
-    outDir: "dist", // ✅ Ensure build outputs to `dist`
+    outDir: "dist", // ✅ Ensures build outputs to `dist`
+    manifest: true, // ✅ Generates manifest.json for hashed filenames
     rollupOptions: {
+      input: "index.html", // ✅ Ensures Vite tracks index.html
       output: {
-        assetFileNames: "[name]-[hash][extname]", // ✅ Prevents 404 errors for assets
-        chunkFileNames: "[name]-[hash].js",
-        entryFileNames: "[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash][extname]",  // ✅ Move assets to /assets
+        chunkFileNames: "assets/[name]-[hash].js",  // ✅ Move chunk files to /assets
+        entryFileNames: "assets/[name]-[hash].js",  // ✅ Move entry files to /assets
       },
     },
   },
