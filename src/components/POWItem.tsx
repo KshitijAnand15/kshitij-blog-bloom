@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface POWItemProps {
   id: string;
@@ -10,7 +11,7 @@ export interface POWItemProps {
   link?: string;
 }
 
-const POWItem: React.FC<POWItemProps> = ({ title, date, content, link }) => {
+const POWItem: React.FC<POWItemProps> = ({ id, title, date, content, link }) => {
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'short',
@@ -22,14 +23,20 @@ const POWItem: React.FC<POWItemProps> = ({ title, date, content, link }) => {
       <div className="flex flex-col md:flex-row md:items-start">
         <div className="md:w-36 text-gray-600 mb-1 md:mb-0">{formattedDate}</div>
         <div>
-          {link ? (
-            <a href={link} target="_blank" rel="noreferrer" className="text-gray-800 font-medium hover:text-blue-600">
-              {title}
-            </a>
-          ) : (
-            <div className="text-gray-800 font-medium">{title}</div>
-          )}
+          <Link 
+            to={`/pow/${id}`}
+            className="text-gray-800 font-medium hover:text-blue-600"
+          >
+            {title}
+          </Link>
           <div className="text-gray-700 mt-1">{content}</div>
+          {link && (
+            <div className="mt-2">
+              <a href={link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline text-sm">
+                External Link →
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

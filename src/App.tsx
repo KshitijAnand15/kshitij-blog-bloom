@@ -10,7 +10,9 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import POW from "./pages/POW";
+import POWDetail from "./pages/POWDetail";
 import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 import Bookmarks from "./pages/Bookmarks";
 import NotFound from "./pages/NotFound";
 
@@ -27,7 +29,9 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/pow" element={<POW />} />
+          <Route path="/pow/:id" element={<POWDetail />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
