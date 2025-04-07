@@ -138,6 +138,16 @@ export const cmsService = {
     });
   },
   
+  getProjectById: async (id: string): Promise<ProjectProps | undefined> => {
+    // Simulate API call
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const project = projects.find(project => project.id === id);
+        resolve(project);
+      }, 300);
+    });
+  },
+  
   // Bookmarks methods
   getBookmarks: async (): Promise<BookmarkProps[]> => {
     // Simulate API call
@@ -151,6 +161,16 @@ export const cmsService = {
     // Simulate API call
     return new Promise((resolve) => {
       setTimeout(() => resolve(powItems), 300);
+    });
+  },
+  
+  getPOWItemById: async (id: string): Promise<POWItemProps | undefined> => {
+    // Simulate API call
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const item = powItems.find(item => item.id === id);
+        resolve(item);
+      }, 300);
     });
   },
   
