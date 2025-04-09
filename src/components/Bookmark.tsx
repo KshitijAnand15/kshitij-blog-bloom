@@ -1,13 +1,9 @@
-
 import React from 'react';
 
 export interface BookmarkProps {
-  id: string;
   title: string;
   url: string;
   description: string;
-  imageUrl?: string;
-  category?: string;
 }
 
 const Bookmark: React.FC<BookmarkProps> = ({ title, url, description }) => {

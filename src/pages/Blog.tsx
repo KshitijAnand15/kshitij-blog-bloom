@@ -1,14 +1,20 @@
-
-import React, { useEffect, useState } from 'react';
-import Layout from '../components/Layout';
-import BlogPost, { BlogPostProps } from '../components/BlogPost';
-import { cmsService } from '../services/cmsService';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
+import React, { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import BlogPost from "../components/BlogPost";
+import { getAllPosts } from "@/lib/getPost"; // <-- Your markdown loader
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "../components/ui/pagination";
 
 const ITEMS_PER_PAGE = 15;
 
 const Blog = () => {
-  const [posts, setPosts] = useState<BlogPostProps[]>([]);
+  const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -16,11 +22,11 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const postsData = await cmsService.getBlogPosts();
+        const postsData = await getAllPosts(); // ✅ use .md instead of cmsService
         setPosts(postsData);
         setTotalPages(Math.ceil(postsData.length / ITEMS_PER_PAGE));
       } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.error("Error loading posts:", error);
       } finally {
         setLoading(false);
       }
@@ -38,7 +44,7 @@ const Blog = () => {
     <Layout>
       <div className="py-4">
         <h1 className="font-medium text-2xl mb-4">Blog</h1>
-        
+
         {loading ? (
           <div className="text-center py-10">
             <p>Loading posts...</p>
@@ -47,25 +53,32 @@ const Blog = () => {
           <>
             <div>
               {paginatedPosts.map((post) => (
-                <BlogPost key={post.id} {...post} />
+                <BlogPost
+                  key={post.slug}
+                  id={post.slug}
+                  title={post.title}
+                  slug={post.slug}
+                  date={post.date}
+                  excerpt={post.description || ""}
+                />
               ))}
             </div>
-            
+
             {totalPages > 1 && (
               <Pagination className="mt-8">
                 <PaginationContent>
                   {currentPage > 1 && (
                     <PaginationItem>
-                      <PaginationPrevious 
-                        href="#" 
+                      <PaginationPrevious
+                        href="#"
                         onClick={(e) => {
                           e.preventDefault();
-                          setCurrentPage(prev => Math.max(prev - 1, 1));
-                        }} 
+                          setCurrentPage((prev) => Math.max(prev - 1, 1));
+                        }}
                       />
                     </PaginationItem>
                   )}
-                  
+
                   {Array.from({ length: totalPages }).map((_, index) => (
                     <PaginationItem key={index}>
                       <PaginationLink
@@ -80,15 +93,17 @@ const Blog = () => {
                       </PaginationLink>
                     </PaginationItem>
                   ))}
-                  
+
                   {currentPage < totalPages && (
                     <PaginationItem>
-                      <PaginationNext 
-                        href="#" 
+                      <PaginationNext
+                        href="#"
                         onClick={(e) => {
                           e.preventDefault();
-                          setCurrentPage(prev => Math.min(prev + 1, totalPages));
-                        }} 
+                          setCurrentPage((prev) =>
+                            Math.min(prev + 1, totalPages)
+                          );
+                        }}
                       />
                     </PaginationItem>
                   )}

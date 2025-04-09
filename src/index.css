@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -37,23 +36,23 @@
     @apply bg-background text-foreground font-inter;
     font-family: 'Inter', sans-serif;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium tracking-tight;
   }
-  
+
   h1 {
     @apply text-3xl md:text-4xl;
   }
-  
+
   h2 {
     @apply text-2xl md:text-3xl;
   }
-  
+
   h3 {
     @apply text-xl md:text-2xl;
   }
-  
+
   a {
     @apply transition-all duration-200;
   }
@@ -63,37 +62,37 @@
   .nav-link {
     @apply relative text-foreground hover:text-accent transition-colors duration-200;
   }
-  
+
   .nav-link::after {
     content: "";
     @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-200;
   }
-  
+
   .nav-link:hover::after,
   .nav-link.active::after {
     @apply w-full;
   }
-  
+
   .content-container {
     @apply max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-12;
   }
-  
+
   .blog-post {
     @apply mb-8 pb-8 border-b border-muted last:border-0;
   }
-  
+
   .blog-post-title {
     @apply text-xl md:text-2xl font-medium mb-2 hover:text-accent transition-colors;
   }
-  
+
   .blog-post-meta {
     @apply text-sm text-muted-foreground mb-3;
   }
-  
+
   .project-card {
     @apply border border-border rounded-lg p-5 hover:border-accent transition-all duration-200;
   }
-  
+
   .bookmark-item {
     @apply flex flex-col md:flex-row gap-4 mb-6 pb-6 border-b border-muted last:border-0;
   }

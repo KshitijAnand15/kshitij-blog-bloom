@@ -1,24 +1,24 @@
-
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import Layout from '../components/Layout';
-import { cmsService } from '../services/cmsService';
-import { BlogPostProps } from '../components/BlogPost';
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import Layout from "../components/Layout";
+import { getPostBySlug } from "@/lib/getPost";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<BlogPostProps | null>(null);
+  const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
         if (slug) {
-          const postData = await cmsService.getBlogPostBySlug(slug);
-          setPost(postData || null);
+          const postData = await getPostBySlug(slug);
+          setPost(postData);
         }
       } catch (error) {
-        console.error('Error fetching blog post:', error);
+        console.error("Error fetching blog post:", error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ const BlogPostPage = () => {
     );
   }
 
-  if (!post) {
+  if (error || !post) {
     return (
       <Layout>
         <div className="text-center py-10">
@@ -59,41 +59,22 @@ const BlogPostPage = () => {
             ← Back to Blog
           </Link>
         </div>
-        
+
         <article>
           <h1 className="text-3xl md:text-4xl font-medium mb-4">{post.title}</h1>
           <div className="text-sm text-muted-foreground mb-8">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long', 
-              day: 'numeric'
+            {new Date(post.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </div>
-          
-          <div className="prose prose-lg max-w-none">
-            {/* This would be the actual content from the CMS */}
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-              ex ea commodo consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-              dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h2>Second Heading</h2>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-              veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
-            <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-              sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </p>
-          </div>
+
+          {/* ✅ Render Markdown content with proper spacing and theme support */}
+          <div
+            className="prose prose-lg max-w-none dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
       </div>
     </Layout>

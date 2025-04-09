@@ -1,31 +1,39 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { cmsService } from '../services/cmsService';
-import { ProjectProps } from '../components/Project';
+import { getProjectBySlug } from '@/lib/getProject';
+
+interface ProjectDetailType {
+  title: string;
+  content: string;
+  slug: string;
+}
 
 const ProjectDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const [project, setProject] = useState<ProjectProps | null>(null);
+  const { slug } = useParams<{ slug: string }>();
+  const [project, setProject] = useState<ProjectDetailType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProject = async () => {
+      if (!slug) {
+        console.error("❌ Slug is undefined. Cannot fetch project.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        if (id) {
-          const projectData = await cmsService.getProjectById(id);
-          setProject(projectData || null);
-        }
+        const projectData = await getProjectBySlug(slug);
+        setProject(projectData || null);
       } catch (error) {
-        console.error('Error fetching project:', error);
+        console.error("Error fetching project:", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchProject();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return (
@@ -59,25 +67,13 @@ const ProjectDetail = () => {
             ← Back to Projects
           </Link>
         </div>
-        
+
         <article>
           <h1 className="text-3xl md:text-4xl font-medium mb-4">{project.title}</h1>
-          
-          <div className="prose prose-lg max-w-none mt-6">
-            <p>{project.description}</p>
-            {project.link && (
-              <p className="mt-6">
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-blue-600 hover:underline"
-                >
-                  View Project →
-                </a>
-              </p>
-            )}
-          </div>
+          <div
+            className="prose prose-lg max-w-none mt-6"
+            dangerouslySetInnerHTML={{ __html: project.content }}
+          />
         </article>
       </div>
     </Layout>

@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import Bookmark, { BookmarkProps } from '../components/Bookmark';
-import { cmsService } from '../services/cmsService';
+import { getAllBookmarks } from '@/lib/getBookmarks'; // ✅ Updated import to use getBookmarks
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
 
 const ITEMS_PER_PAGE = 15;
@@ -16,7 +15,7 @@ const Bookmarks = () => {
   useEffect(() => {
     const fetchBookmarks = async () => {
       try {
-        const bookmarksData = await cmsService.getBookmarks();
+        const bookmarksData = await getAllBookmarks(); // ✅ Fetch from local Markdown files
         setBookmarks(bookmarksData);
         setTotalPages(Math.ceil(bookmarksData.length / ITEMS_PER_PAGE));
       } catch (error) {
@@ -46,8 +45,8 @@ const Bookmarks = () => {
         ) : paginatedBookmarks.length > 0 ? (
           <>
             <div>
-              {paginatedBookmarks.map((bookmark) => (
-                <Bookmark key={bookmark.id} {...bookmark} />
+              {paginatedBookmarks.map((bookmark, index) => (
+                <Bookmark key={index} {...bookmark} />
               ))}
             </div>
             

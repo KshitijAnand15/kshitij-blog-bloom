@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,7 +22,10 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      {/* ✅ Use dynamic basename to work in both dev + GitHub Pages */}
+      <BrowserRouter
+        basename={import.meta.env.MODE === "production" ? "/kshitij-blog-bloom" : "/"}
+      >
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
@@ -31,7 +33,7 @@ const App = () => (
           <Route path="/pow" element={<POW />} />
           <Route path="/pow/:id" element={<POWDetail />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} /> {/* ✅ Updated here */}
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

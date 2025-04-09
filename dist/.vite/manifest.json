@@ -1,11 +1,59 @@
 {
+  "_index-BTZikr4I.js": {
+    "file": "assets/index-BTZikr4I.js",
+    "name": "index",
+    "isDynamicEntry": true
+  },
   "index.html": {
-    "file": "assets/index-FGZRBXbV.js",
+    "file": "assets/index-B-Mc-aWF.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
+    "dynamicImports": [
+      "src/posts/Autonomy.md?raw",
+      "src/posts/prodman-as-signal.md?raw",
+      "src/posts/the-wailing.md?raw",
+      "src/posts/true-self.md?raw",
+      "src/posts/view-from-halfway-down.md?raw",
+      "src/posts/Autonomy.md?raw",
+      "src/posts/prodman-as-signal.md?raw",
+      "src/posts/the-wailing.md?raw",
+      "src/posts/true-self.md?raw",
+      "src/posts/view-from-halfway-down.md?raw",
+      "_index-BTZikr4I.js"
+    ],
     "css": [
-      "assets/index-CKmDBq8A.css"
+      "assets/index-Dy6-9Si3.css"
     ]
+  },
+  "src/posts/Autonomy.md?raw": {
+    "file": "assets/Autonomy-F5NBBCgv.js",
+    "name": "Autonomy",
+    "src": "src/posts/Autonomy.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/posts/prodman-as-signal.md?raw": {
+    "file": "assets/prodman-as-signal-DU87ZmPd.js",
+    "name": "prodman-as-signal",
+    "src": "src/posts/prodman-as-signal.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/posts/the-wailing.md?raw": {
+    "file": "assets/the-wailing-Cq3BMmpQ.js",
+    "name": "the-wailing",
+    "src": "src/posts/the-wailing.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/posts/true-self.md?raw": {
+    "file": "assets/true-self-BYWOVxFm.js",
+    "name": "true-self",
+    "src": "src/posts/true-self.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/posts/view-from-halfway-down.md?raw": {
+    "file": "assets/view-from-halfway-down-CDUjJwLP.js",
+    "name": "view-from-halfway-down",
+    "src": "src/posts/view-from-halfway-down.md?raw",
+    "isDynamicEntry": true
   }
 }

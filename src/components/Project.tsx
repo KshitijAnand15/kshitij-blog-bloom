@@ -1,21 +1,22 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 export interface ProjectProps {
-  id: string;
+  slug: string;
   title: string;
   description: string;
-  link?: string;
   imageUrl?: string;
 }
 
-const Project: React.FC<ProjectProps> = ({ id, title, description, link }) => {
+const Project: React.FC<ProjectProps> = ({ slug, title, description }) => {
+  // fallback in case slug is missing
+  const projectLink = slug ? `/projects/${slug}` : '#';
+
   return (
     <div className="py-3 border-b border-gray-200 last:border-0">
       <h3 className="font-medium text-lg mb-1">
         <Link 
-          to={`/projects/${id}`}
+          to={projectLink}
           className="text-gray-800 hover:text-blue-600"
         >
           {title}
