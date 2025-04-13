@@ -1,31 +1,40 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { cmsService } from '../services/cmsService';
-import { POWItemProps } from '../components/POWItem';
+import { getPOWBySlug } from '@/lib/getPOW';
+
+interface POWDetailType {
+  title: string;
+  content: string;
+  date: string;
+  slug: string;
+}
 
 const POWDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const [item, setItem] = useState<POWItemProps | null>(null);
+  const { slug } = useParams<{ slug: string }>();
+  const [item, setItem] = useState<POWDetailType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPOW = async () => {
+      if (!slug) {
+        console.error("❌ Slug is undefined. Cannot fetch POW item.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        if (id) {
-          const itemData = await cmsService.getPOWItemById(id);
-          setItem(itemData || null);
-        }
+        const itemData = await getPOWBySlug(slug);
+        setItem(itemData || null);
       } catch (error) {
-        console.error('Error fetching POW item:', error);
+        console.error("Error fetching POW item:", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchPOW();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return (
@@ -59,32 +68,21 @@ const POWDetail = () => {
             ← Back to POW
           </Link>
         </div>
-        
+
         <article>
           <h1 className="text-3xl md:text-4xl font-medium mb-4">{item.title}</h1>
           <div className="text-sm text-muted-foreground mb-8">
             {new Date(item.date).toLocaleDateString('en-US', {
               year: 'numeric',
-              month: 'long', 
-              day: 'numeric'
+              month: 'long',
+              day: 'numeric',
             })}
           </div>
-          
-          <div className="prose prose-lg max-w-none">
-            <p>{item.content}</p>
-            {item.link && (
-              <p className="mt-6">
-                <a 
-                  href={item.link} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="text-blue-600 hover:underline"
-                >
-                  View Resource →
-                </a>
-              </p>
-            )}
-          </div>
+
+          <div
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: item.content }}
+          />
         </article>
       </div>
     </Layout>

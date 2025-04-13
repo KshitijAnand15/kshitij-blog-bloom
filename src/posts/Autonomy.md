@@ -1,5 +1,5 @@
 ---
-title: "autonomy"
+title: "Autonomy"
 slug: "autonomy"
 date: "2024-07-03"
 description: "A gift that stood out"

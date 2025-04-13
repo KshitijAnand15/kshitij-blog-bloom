@@ -31,9 +31,9 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/pow" element={<POW />} />
-          <Route path="/pow/:id" element={<POWDetail />} />
+          <Route path="/pow/:slug" element={<POWDetail />} /> {/* ✅ CHANGED */}
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} /> {/* ✅ Updated here */}
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

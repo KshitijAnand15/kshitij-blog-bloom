@@ -1,9 +1,15 @@
-
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import POWItem, { POWItemProps } from '../components/POWItem';
-import { cmsService } from '../services/cmsService';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '../components/ui/pagination';
+import { getAllPOW } from '@/lib/getPOW'; // ✅ Updated import
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious
+} from '../components/ui/pagination';
 
 const ITEMS_PER_PAGE = 15;
 
@@ -16,7 +22,7 @@ const POW = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const itemsData = await cmsService.getPOWItems();
+        const itemsData = await getAllPOW(); // ✅ Use markdown source
         setItems(itemsData);
         setTotalPages(Math.ceil(itemsData.length / ITEMS_PER_PAGE));
       } catch (error) {
@@ -38,34 +44,34 @@ const POW = () => {
     <Layout>
       <div className="py-4">
         <h1 className="font-medium text-2xl mb-4">Proof of Work</h1>
-        
+
         {loading ? (
           <div className="text-center py-10">
             <p>Loading content...</p>
           </div>
         ) : paginatedItems.length > 0 ? (
           <>
-            <div>
+            <div className="space-y-6">
               {paginatedItems.map((item) => (
-                <POWItem key={item.id} {...item} />
+                <POWItem key={item.slug ?? item.title} {...item} />
               ))}
             </div>
-            
+
             {totalPages > 1 && (
               <Pagination className="mt-8">
                 <PaginationContent>
                   {currentPage > 1 && (
                     <PaginationItem>
-                      <PaginationPrevious 
-                        href="#" 
+                      <PaginationPrevious
+                        href="#"
                         onClick={(e) => {
                           e.preventDefault();
-                          setCurrentPage(prev => Math.max(prev - 1, 1));
-                        }} 
+                          setCurrentPage((prev) => Math.max(prev - 1, 1));
+                        }}
                       />
                     </PaginationItem>
                   )}
-                  
+
                   {Array.from({ length: totalPages }).map((_, index) => (
                     <PaginationItem key={index}>
                       <PaginationLink
@@ -80,15 +86,15 @@ const POW = () => {
                       </PaginationLink>
                     </PaginationItem>
                   ))}
-                  
+
                   {currentPage < totalPages && (
                     <PaginationItem>
-                      <PaginationNext 
-                        href="#" 
+                      <PaginationNext
+                        href="#"
                         onClick={(e) => {
                           e.preventDefault();
-                          setCurrentPage(prev => Math.min(prev + 1, totalPages));
-                        }} 
+                          setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+                        }}
                       />
                     </PaginationItem>
                   )}
