@@ -5,7 +5,7 @@
     "isDynamicEntry": true
   },
   "index.html": {
-    "file": "assets/index-B-Mc-aWF.js",
+    "file": "assets/index-DcT-FY9J.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -20,14 +20,32 @@
       "src/posts/the-wailing.md?raw",
       "src/posts/true-self.md?raw",
       "src/posts/view-from-halfway-down.md?raw",
+      "src/pow/pm-journey-at-jio.md?raw",
+      "src/pow/pm-journey-at-jio.md?raw",
+      "src/projects/vibe-coding-my-website.md?raw",
+      "src/projects/vibe-coding-my-website.md?raw",
+      "src/bookmarks/all-about-high-agency.md?raw",
+      "src/bookmarks/are-you-having-fun.md?raw",
       "_index-BTZikr4I.js"
     ],
     "css": [
-      "assets/index-Dy6-9Si3.css"
+      "assets/index-Cnapzx4S.css"
     ]
   },
+  "src/bookmarks/all-about-high-agency.md?raw": {
+    "file": "assets/all-about-high-agency-D-RhCVvs.js",
+    "name": "all-about-high-agency",
+    "src": "src/bookmarks/all-about-high-agency.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/bookmarks/are-you-having-fun.md?raw": {
+    "file": "assets/are-you-having-fun-EH4Su2Hk.js",
+    "name": "are-you-having-fun",
+    "src": "src/bookmarks/are-you-having-fun.md?raw",
+    "isDynamicEntry": true
+  },
   "src/posts/Autonomy.md?raw": {
-    "file": "assets/Autonomy-F5NBBCgv.js",
+    "file": "assets/Autonomy-BOLtU1HE.js",
     "name": "Autonomy",
     "src": "src/posts/Autonomy.md?raw",
     "isDynamicEntry": true
@@ -54,6 +72,18 @@
     "file": "assets/view-from-halfway-down-CDUjJwLP.js",
     "name": "view-from-halfway-down",
     "src": "src/posts/view-from-halfway-down.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/pow/pm-journey-at-jio.md?raw": {
+    "file": "assets/pm-journey-at-jio-DkhorM0N.js",
+    "name": "pm-journey-at-jio",
+    "src": "src/pow/pm-journey-at-jio.md?raw",
+    "isDynamicEntry": true
+  },
+  "src/projects/vibe-coding-my-website.md?raw": {
+    "file": "assets/vibe-coding-my-website-BKtS1byR.js",
+    "name": "vibe-coding-my-website",
+    "src": "src/projects/vibe-coding-my-website.md?raw",
     "isDynamicEntry": true
   }
 }
