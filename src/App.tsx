@@ -22,16 +22,14 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {/* ✅ Use dynamic basename to work in both dev + GitHub Pages */}
-      <BrowserRouter
-        basename={import.meta.env.MODE === "production" ? "/kshitij-blog-bloom" : "/"}
-      >
+      {/* ✅ Removed basename since you're using a custom domain */}
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/pow" element={<POW />} />
-          <Route path="/pow/:slug" element={<POWDetail />} /> {/* ✅ CHANGED */}
+          <Route path="/pow/:slug" element={<POWDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
