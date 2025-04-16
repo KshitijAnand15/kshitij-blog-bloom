@@ -19,8 +19,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  // ✅ This ensures GitHub Pages routing works correctly
-  base: mode === "production" ? "/kshitij-blog-bloom/" : "/",
+  // ✅ Changed for custom domain deployment (no subfolder)
+  base: "/",
 
   build: {
     outDir: "dist",
@@ -54,6 +54,5 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  // ✅ Allow importing .md files
   assetsInclude: ["**/*.md"],
 }));
