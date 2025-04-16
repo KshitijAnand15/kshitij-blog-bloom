@@ -21,13 +21,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     />
 
-    <!-- ✅ Use relative path for favicon -->
-    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- ✅ Favicon with root-relative path -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- ✅ Required for GitHub Pages (base path is handled by Vite) -->
-    <base href="/kshitij-blog-bloom/" />
-    <script type="module" crossorigin src="/kshitij-blog-bloom/assets/index-DcT-FY9J.js"></script>
-    <link rel="stylesheet" crossorigin href="/kshitij-blog-bloom/assets/index-Cnapzx4S.css">
+    <!-- ❌ Remove base tag for custom domain -->
+    <!-- <base href="/kshitij-blog-bloom/" /> -->
+    <script type="module" crossorigin src="/assets/index-OuGOY6Cm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cnapzx4S.css">
   </head>
 
   <body>
@@ -36,6 +36,6 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 
-    <!-- ✅ Entry script (Vite will replace this correctly) -->
+    <!-- ✅ Vite will resolve this correctly -->
   </body>
 </html>
