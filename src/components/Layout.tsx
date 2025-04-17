@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -8,19 +7,17 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="min-h-screen">
-      <header className="py-8 border-b border-gray-200">
+      <header className="py-6 border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <Link to="/" className="text-2xl font-medium text-gray-800">Kshitij Anand</Link>
-            <nav>
-              <ul className="flex space-x-8">
+            <nav className="w-full sm:w-auto">
+              <ul className="flex flex-wrap sm:flex-nowrap gap-x-6 gap-y-2">
                 <li>
                   <Link 
                     to="/blog" 
@@ -68,7 +65,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </header>
-      
+
       <main>
         <div className="max-w-5xl mx-auto px-4 py-8">
           {children}

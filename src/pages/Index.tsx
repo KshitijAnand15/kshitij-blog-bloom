@@ -10,7 +10,7 @@ const Index = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       const all = await getAllPosts();
-      setRecentPosts(all.slice(0, 3)); // Get latest 3 posts
+      setRecentPosts(all.slice(0, 3));
     };
 
     fetchPosts();
@@ -18,8 +18,8 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="py-8 md:py-12">
-        <div className="max-w-2xl text-lg text-foreground/80 space-y-4">
+      <div className="py-6 px-4 sm:py-10 sm:px-0">
+        <div className="max-w-2xl mx-auto text-base sm:text-lg text-foreground/80 space-y-4">
           <p>Hi, I'm Kshitij Anand</p>
 
           <p>
@@ -62,7 +62,6 @@ const Index = () => {
             This website is my attempt to think more, write more and explore my curiosities so the kid in me is happy.
           </p>
 
-          {/* ✅ NEW SECTION: Signposts */}
           <p>Some signposts to guide you:</p>
           <ul className="list-disc list-inside space-y-1 text-foreground/80">
             <li>
@@ -88,12 +87,12 @@ const Index = () => {
           </ul>
         </div>
 
-        <div className="mt-12">
-          <h2 className="text-2xl font-medium mb-6">Recent Posts</h2>
+        <div className="mt-10 sm:mt-12">
+          <h2 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6">Recent Posts</h2>
           <div className="space-y-6">
             {recentPosts.map((post) => (
               <div key={post.slug} className="border-l-2 border-accent pl-4">
-                <h3 className="text-xl font-medium">
+                <h3 className="text-lg sm:text-xl font-medium">
                   <Link to={`/blog/${post.slug}`} className="hover:text-accent">
                     {post.title}
                   </Link>
