@@ -6,7 +6,7 @@
   "homepage": "https://KshitijAnand15.github.io/kshitij-blog-bloom",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cpx \"dist/index.html\" dist/404.html",
+    "build": "vite build && cpx dist/index.html dist/404.html",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
