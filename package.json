@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://kshitijanand.com"
+  "homepage": "https://kshitijanand.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build && cpy dist/index.html dist/ --rename=404.html",
