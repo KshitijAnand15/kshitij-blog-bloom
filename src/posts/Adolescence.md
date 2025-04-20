@@ -2,7 +2,7 @@
 title: "Adolescence"
 slug: "adolescence"
 date: "2025-04-20"
-description: "A"
+description: "Thoughts on the show"
 ---
 
 Most of the things I saw in Adolescence are not new. Except for the murder part , which was horrible, there was nothing shocking. 
