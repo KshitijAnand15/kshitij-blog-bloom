@@ -2,7 +2,7 @@ const e=`---\r
 title: "Adolescence"\r
 slug: "adolescence"\r
 date: "2025-04-20"\r
-description: "A"\r
+description: "Thoughts on the show"\r
 ---\r
 \r
 Most of the things I saw in Adolescence are not new. Except for the murder part , which was horrible, there was nothing shocking. \r
