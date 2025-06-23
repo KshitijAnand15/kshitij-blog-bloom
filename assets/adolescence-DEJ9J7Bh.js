@@ -11,7 +11,7 @@ And I can tell you this as someone who turned teen when the internet just picked
 \r
 People say the internet has done this and that, but if you watch episode 3 closely, you'll find such people even before the internet era.\r
 \r
-The idea of a 'gettable'woman who is down bad or going through a breakup and hence is ‘easy’ is not something that originated from the internet. I’ve been given this advice first when I was 14. In person. It’s not new. And in terms of internet years, I am a dinosaur.\r
+The idea of a 'gettable' woman who is down bad or going through a breakup and hence is ‘easy’ is not something that originated from the internet. I’ve been given this advice first when I was 14. In person. It’s not new. And in terms of internet years, I am a dinosaur.\r
 \r
 Rene Girard introduced the idea of Memesis (everyone should read it) and it says almost all human beings’ needs and desires do not come from within but from the outside world.\r
 \r
