@@ -6,11 +6,12 @@ export interface ProjectProps {
   title: string;
   description: string;
   imageUrl?: string;
+  basePath?: string;
 }
 
-const Project: React.FC<ProjectProps> = ({ slug, title, description }) => {
+const Project: React.FC<ProjectProps> = ({ slug, title, description, basePath = '/projects' }) => {
   // fallback in case slug is missing
-  const projectLink = slug ? `/projects/${slug}` : '#';
+  const projectLink = slug ? `${basePath}/${slug}` : '#';
 
   return (
     <div className="py-3 border-b border-gray-200 last:border-0">

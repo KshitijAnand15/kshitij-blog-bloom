@@ -12,7 +12,8 @@ import POW from "./pages/POW";
 import POWDetail from "./pages/POWDetail";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
-import Bookmarks from "./pages/Bookmarks";
+import CaseStudies from "./pages/CaseStudies";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,7 +33,8 @@ const App = () => (
           <Route path="/pow/:slug" element={<POWDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="/bookmarks" element={<Bookmarks />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

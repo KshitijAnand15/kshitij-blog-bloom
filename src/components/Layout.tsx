@@ -57,10 +57,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </li>
                 <li>
                   <Link
-                    to="/bookmarks"
-                    className={`hover:text-accent ${isActive('/bookmarks') ? 'font-medium' : ''}`}
+                    to="/case-studies"
+                    className={`hover:text-accent ${isActive('/case-studies') ? 'font-medium' : ''}`}
                   >
-                    Bookmarks
+                    Case Studies
                   </Link>
                 </li>
                 <li>
@@ -70,7 +70,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     rel="noreferrer"
                     className="hover:text-accent"
                   >
-                    Newsletter
+                    Potatoist
                   </a>
                 </li>
               </ul>
@@ -110,11 +110,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </li>
                 <li>
                   <Link
-                    to="/bookmarks"
+                    to="/case-studies"
                     className="block text-gray-800 hover:text-accent"
                     onClick={() => setShowMobileMenu(false)}
                   >
-                    Bookmarks
+                    Case Studies
                   </Link>
                 </li>
                 <li>
@@ -125,7 +125,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     className="block text-gray-800 hover:text-accent"
                     onClick={() => setShowMobileMenu(false)}
                   >
-                    Newsletter
+                    Potatoist
                   </a>
                 </li>
               </ul>

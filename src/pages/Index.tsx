@@ -80,9 +80,9 @@ const Index = () => {
               </Link>: Learning things by building products, researching random topics and daydreaming about telling stories.
             </li>
             <li>
-              <Link to="/bookmarks" className="text-accent hover:underline">
-                Bookmarks
-              </Link>: Some timeless reads that have helped me become a better individual, a better professional and more self-aware in general.
+              <Link to="/case-studies" className="text-accent hover:underline">
+                Case Studies
+              </Link>: Product work, decisions, launches, and what moved.
             </li>
           </ul>
         </div>
